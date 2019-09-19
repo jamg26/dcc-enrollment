@@ -42,10 +42,14 @@ include '../styles.php';
 
     </div>
     <div class="col-sm">
-        <div class="form-group">
-            <label for="exampleInputPassword1">Gender</label>
-            <input type="text" class="form-control" id="exampleInputPassword1" placeholder="">
-        </div>
+    <div class="form-group">
+        <label for="exampleFormControlSelect1">Gender</label>
+        <select class="form-control" id="exampleFormControlSelect1">
+        <option>Male</option>
+        <option>Female</option>
+        <option>Prefer not to say</option>
+        </select>
+    </div>
         <div class="form-group">
             <label for="exampleInputPassword1">Birthday</label>
             <input type="text" class="form-control" id="exampleInputPassword1" placeholder="">
@@ -64,8 +68,6 @@ include '../styles.php';
                 $result = $conn->query($sql);
                 echo $result->num_rows;
                 if ($result->num_rows > 0) {
-                    
-                    echo "<option> $row </option>";
                     while ($row = $result->fetch_assoc()) {
                         $course = $row['description'];
                         ?>
@@ -73,18 +75,11 @@ include '../styles.php';
                         <?php
                         echo $course;
                         ?> 
-                        </option>
+                        </option>     
                         <?php
                     }
                 }
                 ?>
-                <!-- <option>Accounting Technology Program</option>
-                <option>Business Administration Program</option>
-                <option>Criminal Justice Program</option>
-                <option>College of Education and Liberal Arts</option>
-                <option>Information Technology Program</option>
-                <option>Hotel and Restaurant Management</option>
-                <option>Basic Education Department</option> -->
             </select>
         </div>
         <div class="form-group">
