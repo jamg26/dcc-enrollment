@@ -1,6 +1,9 @@
 <?php
 include_once './styles.php';
-include './components/navigation.php'
+include './components/navigation.php';
+if(!isset($_SESSION['user'])) {
+	header('location: ./pages/signin.php');
+}
 ?>
 
 <html>

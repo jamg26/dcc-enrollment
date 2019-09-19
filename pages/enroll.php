@@ -15,19 +15,19 @@ include '../styles.php';
     <?php if (isset($_GET['success'])) {echo '<div class="text-success"><small>Success! Please wait while we verify your form. We will send you an email after.</small></div>';}?>
     <div class="form-group">
             <label for="exampleInputPassword1">First Name</label>
-            <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Jamuel" disabled>
+            <input type="text" class="form-control" id="exampleInputPassword1" placeholder="" value="<?php echo $_SESSION['user']['1'] ?>" disabled>
         </div>
         <div class="form-group">
             <label for="exampleInputPassword1">Middle Name</label>
-            <input type="text" class="form-control" id="exampleInputPassword1" placeholder="" disabled>
+            <input type="text" class="form-control" id="exampleInputPassword1" placeholder="" value="<?php echo $_SESSION['user']['2'] ?>" disabled>
         </div>
         <div class="form-group">
             <label for="exampleInputPassword1">Last Name</label>
-            <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Galicia" disabled>
+            <input type="text" class="form-control" id="exampleInputPassword1" placeholder="" value="<?php echo $_SESSION['user']['3'] ?>" disabled>
         </div>
         <div class="form-group">
             <label for="exampleInputPassword1">Address</label>
-            <input type="text" class="form-control" id="exampleInputPassword1" placeholder="General Kangleon st. Toril Davao City" disabled>
+            <input type="text" class="form-control" id="exampleInputPassword1" placeholder="" value="<?php echo $_SESSION['user']['4'] ?>" disabled>
         </div>
         <div class="form-group">
             <label for="exampleInputPassword1">Status</label>
@@ -57,13 +57,34 @@ include '../styles.php';
         <div class="form-group">
             <label for="exampleInputPassword1">Course</label>
             <select class="form-control" id="exampleFormControlSelect1">
-                <option>Accounting Technology Program</option>
+                <?php 
+                include('../db.php');
+                
+                $sql = "select * from course";
+                $result = $conn->query($sql);
+                echo $result->num_rows;
+                if ($result->num_rows > 0) {
+                    
+                    echo "<option> $row </option>";
+                    while ($row = $result->fetch_assoc()) {
+                        $course = $row['description'];
+                        ?>
+                        <option>
+                        <?php
+                        echo $course;
+                        ?> 
+                        </option>
+                        <?php
+                    }
+                }
+                ?>
+                <!-- <option>Accounting Technology Program</option>
                 <option>Business Administration Program</option>
                 <option>Criminal Justice Program</option>
                 <option>College of Education and Liberal Arts</option>
                 <option>Information Technology Program</option>
                 <option>Hotel and Restaurant Management</option>
-                <option>Basic Education Department</option>
+                <option>Basic Education Department</option> -->
             </select>
         </div>
         <div class="form-group">

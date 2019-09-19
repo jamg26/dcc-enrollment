@@ -1,5 +1,6 @@
 <?php
 @include '../styles.php';
+session_start();
 ?>
 <html>
 <body>
@@ -10,11 +11,18 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav">
-        <a id="enroll" class="nav-item nav-link" href="../pages/enroll.php">Enroll</a>
-        <a id="profile" class="nav-item nav-link" href="../pages/profile.php">Profile</a>
-        <a id="signup" class="nav-item nav-link" href="../pages/signup.php">Sign Up</a>
-        <a id="signin" class="nav-item nav-link" href="../pages/signin.php">Sign In</a>
-        <a class="nav-item nav-link" href="#">Logout</a>
+        <?php if(isset($_SESSION['user'])) {
+            echo '
+            <a id="enroll" class="nav-item nav-link" href="../pages/enroll.php">Enroll</a>
+            <a id="profile" class="nav-item nav-link" href="../pages/profile.php">Profile</a>
+            <a class="nav-item nav-link" href="../logout.php">Logout</a>
+            ';
+        } else {
+            echo '
+            <a id="signup" class="nav-item nav-link" href="../pages/signup.php">Sign Up</a>
+            <a id="signin" class="nav-item nav-link" href="../pages/signin.php">Sign In</a>
+            ';
+        } ?>
         </div>
     </div>
     </nav>
