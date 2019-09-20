@@ -1,6 +1,7 @@
 <?php
 include '../components/navigation.php';
 include '../styles.php';
+include '../db.php';
 ?>
 
 
@@ -13,10 +14,11 @@ include '../styles.php';
     <div class="row">
         <div class="col-sm">
         </div>
-        <div class="col-sm">
-        <form action="#" method="post">
+        <div class="col-sm-6">
+        <form action="../api/add-course.php" method="post">
             <div class="form-group">
-                <?php if (isset($_GET['invalid'])) { echo '<div class="text-danger">Invalid.</div>'; }?>
+                <?php if (isset($_GET['success'])) { echo '<div class="text-success">Added!</div>'; }?>
+                <?php if (isset($_GET['invalid'])) { echo '<div class="text-danger">Invalid!</div>'; }?>
                 <label for="exampleInputEmail1">Code</label>
                 <input type="text" name="code" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="" required>
             </div>
@@ -26,12 +28,10 @@ include '../styles.php';
             </div>
             <div class="form-group">
             <label for="exampleInputPassword1">Department</label>
-            <select class="form-control" id="exampleFormControlSelect1">
+            <select class="form-control" name="department" id="exampleFormControlSelect1">
                 <?php
-                include '../db.php';
                 $sql = "select * from department";
                 $result = $conn->query($sql);
-                echo $result->num_rows;
                 if ($result->num_rows > 0) {
                     while ($row = $result->fetch_assoc()) {
                         $department = $row['code'];
