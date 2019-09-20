@@ -15,6 +15,14 @@ session_start();
             echo '
             <a id="enroll" class="nav-item nav-link" href="../pages/enroll.php">Enroll</a>
             <a id="profile" class="nav-item nav-link" href="../pages/profile.php">Profile</a>
+            ';
+            if($_SESSION['user'][6] == 'admin') {
+                echo '
+                <a id="add-course" class="nav-item nav-link" href="../pages/add-course.php">Course</a>
+                <a id="add-department" class="nav-item nav-link" href="../pages/add-department.php">Department</a>
+                ';
+            }
+            echo '
             <a class="nav-item nav-link" href="../logout.php">Logout</a>
             ';
         } else {

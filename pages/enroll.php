@@ -15,27 +15,27 @@ include '../styles.php';
     <?php if (isset($_GET['success'])) {echo '<div class="text-success"><small>Success! Please wait while we verify your form. We will send you an email after.</small></div>';}?>
     <div class="form-group">
             <label for="exampleInputPassword1">First Name</label>
-            <input type="text" class="form-control" id="exampleInputPassword1" placeholder="" value="<?php echo $_SESSION['user']['1'] ?>" disabled>
+            <input type="text" name="" class="form-control" id="exampleInputPassword1" placeholder="" value="<?php echo $_SESSION['user']['1'] ?>" disabled>
         </div>
         <div class="form-group">
             <label for="exampleInputPassword1">Middle Name</label>
-            <input type="text" class="form-control" id="exampleInputPassword1" placeholder="" value="<?php echo $_SESSION['user']['2'] ?>" disabled>
+            <input type="text" name="" class="form-control" id="exampleInputPassword1" placeholder="" value="<?php echo $_SESSION['user']['2'] ?>" disabled>
         </div>
         <div class="form-group">
             <label for="exampleInputPassword1">Last Name</label>
-            <input type="text" class="form-control" id="exampleInputPassword1" placeholder="" value="<?php echo $_SESSION['user']['3'] ?>" disabled>
+            <input type="text" name="" class="form-control" id="exampleInputPassword1" placeholder="" value="<?php echo $_SESSION['user']['3'] ?>" disabled>
         </div>
         <div class="form-group">
             <label for="exampleInputPassword1">Address</label>
-            <input type="text" class="form-control" id="exampleInputPassword1" placeholder="" value="<?php echo $_SESSION['user']['4'] ?>" disabled>
+            <input type="text" name="" class="form-control" id="exampleInputPassword1" placeholder="" value="<?php echo $_SESSION['user']['4'] ?>" disabled>
         </div>
         <div class="form-group">
             <label for="exampleInputPassword1">Status</label>
-            <input type="text" class="form-control" id="exampleInputPassword1" placeholder="">
+            <input type="text" name="" class="form-control" id="exampleInputPassword1" placeholder="">
         </div>
         <div class="form-group">
             <label for="exampleInputPassword1">Nationality</label>
-            <input type="text" class="form-control" id="exampleInputPassword1" placeholder="">
+            <input type="text" name="" class="form-control" id="exampleInputPassword1" placeholder="">
         </div>
 
 
@@ -61,9 +61,8 @@ include '../styles.php';
         <div class="form-group">
             <label for="exampleInputPassword1">Course</label>
             <select class="form-control" id="exampleFormControlSelect1">
-                <?php 
-                include('../db.php');
-                
+                <?php
+                include '../db.php';
                 $sql = "select * from course";
                 $result = $conn->query($sql);
                 echo $result->num_rows;
@@ -72,14 +71,9 @@ include '../styles.php';
                         $course = $row['description'];
                         ?>
                         <option>
-                        <?php
-                        echo $course;
-                        ?> 
-                        </option>     
-                        <?php
-                    }
-                }
-                ?>
+                        <?php echo $course; ?>
+                        </option>
+                    <?php }} ?>
             </select>
         </div>
         <div class="form-group">

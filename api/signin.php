@@ -9,7 +9,7 @@ $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
     while ($row = $result->fetch_assoc()) {
-        $_SESSION['user'] = [$row['id'], $row['firstname'], $row['middlename'], $row['lastname'], $row['address'], $row['address']];
+        $_SESSION['user'] = [$row['id'], $row['firstname'], $row['middlename'], $row['lastname'], $row['address'], $row['address'], $row['role']];
         header('location: /');
     }
 } else {
