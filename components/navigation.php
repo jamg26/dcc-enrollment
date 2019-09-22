@@ -19,7 +19,7 @@ session_start();
             if($_SESSION['user'][6] == 'admin') {
                 echo '
                 <a id="course" class="nav-item nav-link" href="../pages/course.php">Course</a>
-                <a id="add-department" class="nav-item nav-link" href="../pages/add-department.php">Department</a>
+                <a id="add-department" class="nav-item nav-link" href="../pages/department.php">Department</a>
                 ';
             }
             echo '

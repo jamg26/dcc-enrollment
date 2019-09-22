@@ -9,7 +9,7 @@ if(isset($_POST['code'])) {
         header('location: ../pages/course.php?updated=true');
     } else {
         //echo "Error: " . $sql . "<br>" . $conn->error;
-        header('location: ../pages/add-course.php?updated=false');
+        header('location: ../pages/course.php?updated=false');
     }
     $conn->close();
 }

@@ -7,9 +7,8 @@ if(isset($_POST['course'])) {
         header('location: ../pages/course.php?deleted=true');
     } else {
         //echo "Error: " . $sql . "<br>" . $conn->error;
-        header('location: ../pages/add-course.php?deleted=false');
+        header('location: ../pages/course.php?deleted=false');
     }
     $conn->close();
 }
-
 ?>

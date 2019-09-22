@@ -1,6 +1,9 @@
 <?php
 include '../components/navigation.php';
 include '../styles.php';
+if(!isset($_SESSION['user'])) {
+    header('location:./signin.php');
+}
 ?>
 
 <html>
@@ -12,19 +15,19 @@ include '../styles.php';
     <div class="row">
         <div class="col-sm">
             <img src="../images/profiles/15-001161.jpg" alt="..." class="img-thumbnail rounded mt-5" width="100px"/>
-            <p><h1>Jamuel Galicia</h1></p>
-            <p>15-00161</p>
-            <p>Male</p>
-            <p>December 26, 1994</p>
-            <p>General Kangleon street Toril Davao City</p>
-            <p>Single</p>
-            <p>Filipino</p>
-            <p>0930-469-9769</p>
+            <p><h1><?php echo $_SESSION['user'][1] ?> <?php echo $_SESSION['user'][2] ?> <?php echo $_SESSION['user'][3] ?></h1></p>
+            <p>Student ID: <?php echo $_SESSION['user'][0] ?></p>
+            <p>Email: <?php echo $_SESSION['user'][5] ?></p>
+            <p>Birthday: </p>
+            <p>Address: <?php echo $_SESSION['user'][4] ?></p>
+            <p>Status: </p>
+            <p>Nationality: </p>
+            <p>Contact: </p>
         </div>
         <div class="col-sm">
-            <p class="mt-5">ITE Department</p>
-            <p>Bachelor of Science in Information Technology</p>
-            <p>3rd Year</p>
+            <p class="mt-5">Department: </p>
+            <p>Course: </p>
+            <p>Year: </p>
             <a href="../components/studentload.php" onclick="window.open('../components/studentload.php',
                          'newwindow',
                          'width=800,height=600');
@@ -44,11 +47,11 @@ include '../styles.php';
         </thead>
         <tbody>
             <tr>
-            <th scope="row">IT</th>
+            <th scope="row">-</th>
             <td>-</td>
-            <td>SA 208</td>
-            <td>5-7 PM</td>
-            <td>Erwin Acedillo</td>
+            <td>-</td>
+            <td>-</td>
+            <td>-</td>
             </tr>
         </tbody>
     </table>

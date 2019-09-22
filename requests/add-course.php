@@ -6,10 +6,10 @@ if(isset($_POST['code'])) {
     $department = $_POST['department'];
     $sql = "insert into course (code, description, department) values('$code', '$description', '$department')";
     if ($conn->query($sql) === TRUE) {
-        header('location: ../pages/add-course.php?success=true');
+        header('location: ../pages/course.php?added=true');
     } else {
         //echo "Error: " . $sql . "<br>" . $conn->error;
-        header('location: ../pages/add-course.php?invalid=true');
+        header('location: ../pages/course.php?added=true');
     }
     $conn->close();
 }

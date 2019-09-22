@@ -21,11 +21,11 @@ include '../styles.php';
     </thead>
     <tbody>
         <tr>
-        <th scope="row">IT</th>
+        <th scope="row">-</th>
         <td>-</td>
-        <td>SA 208</td>
-        <td>5-7 PM</td>
-        <td>Erwin Acedillo</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
         </tr>
     </tbody>
 </table>
