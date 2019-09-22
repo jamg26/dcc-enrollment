@@ -14,7 +14,7 @@ if(!isset($_SESSION['user'])) {
     <div class="container">
     <div class="row">
         <div class="col-sm">
-            <img src="../images/profiles/15-001161.jpg" alt="..." class="img-thumbnail rounded mt-5" width="100px"/>
+            <!-- <img src="../images/profiles/15-001161.jpg" alt="..." class="img-thumbnail rounded mt-5" width="100px"/> -->
             <p><h1><?php echo $_SESSION['user'][1] ?> <?php echo $_SESSION['user'][2] ?> <?php echo $_SESSION['user'][3] ?></h1></p>
             <p>Student ID: <?php echo $_SESSION['user'][0] ?></p>
             <p>Email: <?php echo $_SESSION['user'][5] ?></p>
