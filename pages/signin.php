@@ -17,7 +17,7 @@ if(isset($_SESSION['user'])) {
         <div class="col-sm">
         </div>
         <div class="col-sm">
-        <form action="../api/signin.php" method="post">
+        <form action="../requests/signin.php" method="post">
             <div class="form-group">
                 <?php if(isset($_GET['invalid'])) {
                     echo '<div class="text-danger">Invalid email/password.</div>';

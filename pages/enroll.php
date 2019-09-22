@@ -9,7 +9,7 @@ include '../styles.php';
 </head>
 <body>
 <div class="container">
-<form action="../api/enroll.php">
+<form action="../requests/enroll.php">
   <div class="row">
     <div class="col-sm">
     <?php if (isset($_GET['success'])) {echo '<div class="text-success"><small>Success! Please wait while we verify your form. We will send you an email after.</small></div>';}?>

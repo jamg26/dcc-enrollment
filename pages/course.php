@@ -27,7 +27,6 @@ include '../db.php';
             echo '<div class="text-danger">Failed!</div>';
         }
         ?>
-
         <table class="table">
         <thead>
             <tr>
@@ -54,7 +53,7 @@ include '../db.php';
                         <input type="text" name="department" value="<?php echo $row['department'] ?>" hidden/>
                         <td><button type="submit" class="btn btn-success"><i class="fas fa-edit"></i></button></td>
                     </form>
-                    <form action="../api/delete-course.php" method="post">
+                    <form action="../requests/delete-course.php" method="post">
                         <input type="text" name="course" value="<?php echo $row['code'] ?>" hidden/>
                         <td><button type="submit" class="btn btn-danger"><i class="fas fa-trash-alt"></i></button></td>
                     </form>

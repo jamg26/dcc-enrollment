@@ -15,7 +15,7 @@ include '../db.php';
         <div class="col-sm">
         </div>
         <div class="col-sm-6">
-        <form action="../api/add-course.php" method="post">
+        <form action="../requests/add-course.php" method="post">
             <div class="form-group">
                 <?php if (isset($_GET['success'])) { echo '<div class="text-success">Added!</div>'; }?>
                 <?php if (isset($_GET['invalid'])) { echo '<div class="text-danger">Invalid!</div>'; }?>

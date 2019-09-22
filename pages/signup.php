@@ -17,7 +17,7 @@ if(isset($_SESSION['user'])) {
         <div class="col-sm">
         </div>
         <div class="col-sm">
-            <form action="../api/signup.php" method="post">
+            <form action="../requests/signup.php" method="post">
                 <?php if(isset($_GET['success'])){
                     if($_GET['success'] == 'true') {echo '<div class="text-success">Success! <a href="./signin.php">Login</a></div>';}
                     if($_GET['success'] == 'false') {echo '<div class="text-danger">Failed!</div>';}
