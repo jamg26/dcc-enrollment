@@ -12,14 +12,15 @@ session_start();
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav">
         <?php if(isset($_SESSION['user'])) {
+            //<a id="enroll" class="nav-item nav-link" href="../pages/enroll.php">Enroll</a>
             echo '
-            <a id="enroll" class="nav-item nav-link" href="../pages/enroll.php">Enroll</a>
             <a id="profile" class="nav-item nav-link" href="../pages/profile.php">Profile</a>
             ';
             if($_SESSION['user'][6] == 'admin') {
                 echo '
                 <a id="course" class="nav-item nav-link" href="../pages/course.php">Course</a>
-                <a id="add-department" class="nav-item nav-link" href="../pages/department.php">Department</a>
+                <a id="department" class="nav-item nav-link" href="../pages/department.php">Department</a>
+                <a id="users" class="nav-item nav-link" href="../pages/users.php">Users</a>
                 ';
             }
             echo '

@@ -2,6 +2,7 @@
 include '../components/navigation.php';
 include '../styles.php';
 include '../db.php';
+include '../requests/session.php';
 ?>
 
 
@@ -14,7 +15,7 @@ include '../db.php';
     <div class="row">
         <div class="col-sm">
         </div>
-        <div class="col-sm-6">
+        <div class="col-sm-10">
         <?php
         if(@$_GET['deleted'] == 'true') {
             echo '<div class="text-success">Department deleted!</div>';

@@ -1,6 +1,7 @@
 <?php
 include '../components/navigation.php';
 include '../styles.php';
+include '../requests/session.php';
 ?>
 
 <html>

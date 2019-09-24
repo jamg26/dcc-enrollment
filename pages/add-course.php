@@ -2,6 +2,7 @@
 include '../components/navigation.php';
 include '../styles.php';
 include '../db.php';
+include '../requests/session.php';
 ?>
 
 
