@@ -34,11 +34,10 @@ include '../requests/session.php';
             $sql = "select * from department";
             $result = $conn->query($sql);
             if ($result->num_rows > 0) {
-                
                 while ($row = $result->fetch_assoc()) {
                     $department = $row['code'];
                     ?>
-                    <option>
+                    <option <?php if($_POST['department'] == $department) echo 'selected'?>>
                     <?php echo $department; ?>
                     </option>
                 <?php }} ?>

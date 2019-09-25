@@ -21,6 +21,7 @@ session_start();
                 <a id="course" class="nav-item nav-link" href="../pages/course.php">Course</a>
                 <a id="department" class="nav-item nav-link" href="../pages/department.php">Department</a>
                 <a id="users" class="nav-item nav-link" href="../pages/users.php">Users</a>
+                <a id="students" class="nav-item nav-link" href="../pages/students.php">Students</a>
                 ';
             }
             echo '
@@ -28,7 +29,6 @@ session_start();
             ';
         } else {
             echo '
-            <a id="signup" class="nav-item nav-link" href="../pages/signup.php">Sign Up</a>
             <a id="signin" class="nav-item nav-link" href="../pages/signin.php">Sign In</a>
             ';
         } ?>

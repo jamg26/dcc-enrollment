@@ -1,8 +1,8 @@
 <?php
 include '../components/navigation.php';
 include '../styles.php';
-if(isset($_SESSION['user'])) {
-    header('location: ../');
+if(!isset($_SESSION['user'])) {
+    header('location: ./signin.php');
 }
 
 ?>
