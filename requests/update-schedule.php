@@ -9,7 +9,7 @@ if(isset($_POST['id'])) {
     $semester = $_POST['semester'];
     $term = $_POST['term'];
     $year = $_POST['year'];
-    $sql = "update schedule set subject='$subject', time='$time', room='$room', instructor='$instructor', semester=$semester, term=$term, year=$year where id=$id";
+    $sql = "update schedule set subject='$subject', time='$time', room='$room', instructor='$instructor', semester=$semester, term=$term, year='$year' where id=$id";
     if ($conn->query($sql) === TRUE) {
         header('location: ../pages/schedule.php?updated=true');
     } else {
