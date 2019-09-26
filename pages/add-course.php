@@ -33,10 +33,10 @@ include '../requests/session.php';
                 $result = $conn->query($sql);
                 if ($result->num_rows > 0) {
                     while ($row = $result->fetch_assoc()) {
-                        $department = $row['code'];
+                        $course = $row['code'];
                         ?>
                         <option>
-                        <?php echo $department; ?>
+                        <?php echo $course; ?>
                         </option>
                     <?php }} ?>
             </select>

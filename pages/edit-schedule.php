@@ -26,7 +26,20 @@ include '../requests/session.php';
             </div>
             <div class="form-group">
                 <label for="exampleInputPassword1">Room</label>
-                <input type="text" name="room" class="form-control" id="exampleInputPassword1" value="<?php echo $_POST['room'] ?>" required>
+                <select class="form-control" name="room" id="exampleFormControlSelect1">
+                <?php
+                include_once '../db.php';
+                $sql = "select * from room";
+                $result = $conn->query($sql);
+                if ($result->num_rows > 0) {
+                    while ($row = $result->fetch_assoc()) {
+                        $room = $row['name'];
+                        ?>
+                        <option <?php if($_POST['room'] == $room) echo 'selected'?>>
+                            <?php echo $room; ?>
+                        </option>
+                    <?php }} ?>
+                </select>
             </div>
             <div class="form-group">
                 <label for="exampleInputPassword1">Instructor</label>
