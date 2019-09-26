@@ -13,15 +13,15 @@ session_start();
         <div class="navbar-nav">
         <?php if(isset($_SESSION['user'])) {
             //<a id="enroll" class="nav-item nav-link" href="../pages/enroll.php">Enroll</a>
-            echo '
-            <a id="profile" class="nav-item nav-link" href="../pages/profile.php">Profile</a>
-            ';
-            if($_SESSION['user'][6] == 'admin') {
+            //echo '<a id="profile" class="nav-item nav-link" href="../pages/profile.php">Profile</a>';
+            if($_SESSION['user']['role'] == 'admin') {
                 echo '
                 <a id="course" class="nav-item nav-link" href="../pages/course.php">Course</a>
                 <a id="department" class="nav-item nav-link" href="../pages/department.php">Department</a>
                 <a id="users" class="nav-item nav-link" href="../pages/users.php">Users</a>
                 <a id="students" class="nav-item nav-link" href="../pages/students.php">Students</a>
+                <a id="schedule" class="nav-item nav-link" href="../pages/schedule.php">Schedule</a>
+                <a id="room" class="nav-item nav-link" href="../pages/room.php">Room</a>
                 ';
             }
             echo '

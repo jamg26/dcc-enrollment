@@ -9,7 +9,7 @@ if(!isset($_SESSION['user'])) {
 
 <html>
 <head>
-    <title>DCC | Sign Up</title>
+    <title>DCC | Add User</title>
 </head>
 <body>
     <div class="container">
@@ -19,7 +19,7 @@ if(!isset($_SESSION['user'])) {
         <div class="col-sm">
             <form action="../requests/signup.php" method="post">
                 <?php if(isset($_GET['success'])){
-                    if($_GET['success'] == 'true') {echo '<div class="text-success">Success! <a href="./signin.php">Login</a></div>';}
+                    if($_GET['success'] == 'true') {echo '<div class="text-success">Success!</div>';}
                     if($_GET['success'] == 'false') {echo '<div class="text-danger">Failed!</div>';}
                 } ?>
                 

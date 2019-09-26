@@ -14,8 +14,8 @@ if(isset($_POST['email'])) {
     $course = $_POST['course'];
     $email = mysqli_real_escape_string($conn, $_POST['email']);
     $password = mysqli_real_escape_string($conn, $_POST['password']);
-    $sql = "insert into student (firstname, middlename, lastname, address, gender, birthdate, birthplace, nationality, status, contact, course, email, password)
-            values ('$firstname', '$middlename', '$lastname', '$address','$gender', '$birthdate', '$birthplace', '$nationality','$status', '$contact','$course', '$email', '$password')";
+    $sql = "insert into student (firstname, middlename, lastname, address, gender, birthdate, birthplace, nationality, status, contact, course, email, password, role)
+            values ('$firstname', '$middlename', '$lastname', '$address','$gender', '$birthdate', '$birthplace', '$nationality','$status', '$contact','$course', '$email', '$password', 'student')";
     
     if ($conn->query($sql) === TRUE) {
         header('location: ../pages/students.php?added=true');

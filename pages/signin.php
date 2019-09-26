@@ -17,6 +17,7 @@ if(isset($_SESSION['user'])) {
         <div class="col-sm">
         </div>
         <div class="col-sm">
+        <?php if(isset($_GET['logout'])) { echo '<div class="text-success">Logout success.</div>'; }  ?>
         <form action="../requests/signin.php" method="post">
             <div class="form-group">
                 <?php if(isset($_GET['invalid'])) {
