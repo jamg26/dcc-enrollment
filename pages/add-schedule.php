@@ -19,9 +19,14 @@
 							<label for="exampleInputEmail1">Subject Code</label>
 							<input type="text" name="code" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="" required>
 						</div>
-						<div class="form-group">
-							<label for="exampleInputPassword1">Time</label>
-							<input type="text" name="time" class="form-control" id="exampleInputPassword1" placeholder="" required>
+						<label for="exampleInputPassword1">Time</label>
+						<div class="form-row">
+							<div class="col">
+								<input type="time" name="timeFrom" class="form-control" id="exampleInputPassword1" placeholder="" required>
+							</div>
+							<div class="col">
+								<input type="time" name="timeTo" class="form-control" id="exampleInputPassword1" placeholder="" required>
+							</div>
 						</div>
 						<div class="form-group">
 							<label for="exampleInputPassword1">Room</label>
@@ -52,11 +57,12 @@
 							<label for="exampleInputPassword1">Term</label>
 							<input type="number" name="term" class="form-control" id="exampleInputPassword1" placeholder="" required>
 						</div>
-						<div class="form-group">
-							<label for="exampleInputPassword1">Year</label>
-							<input type="text" name="year" class="form-control" id="exampleInputPassword1" placeholder="" required>
+						<label for="exampleInputPassword1">Year</label>
+						<div class="form-row">
+							<div class="col"><input type="number" name="yearFrom" class="form-control" required></div>
+							<div class="col"><input type="number" name="yearTo" class="form-control" required></div>
 						</div>
-						<button type="submit" class="btn btn-dark">Add Department</button>
+						<button type="submit" class="btn btn-dark mt-3">Add Department</button>
 					</form>
 					<hr>
 				</div>

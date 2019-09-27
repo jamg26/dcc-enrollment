@@ -25,8 +25,9 @@
 						</div>
 						<div class="form-group">
 							<label for="exampleInputPassword1">Program Head</label>
-							<input type="text" name="head" value="<?php echo $_POST['head']?>" class="form-control" id="exampleInputPassword1" placeholder="" required>
+							<input type="text" name="head" value="<?php echo $_POST['head']?>" class="form-control" placeholder="" required>
 						</div>
+						<input type="text" name="id" value="<?php echo $_POST['id']?>" hidden>
 						<button type="submit" class="btn btn-dark">Update Department</button>
 					</form>
 					<hr>

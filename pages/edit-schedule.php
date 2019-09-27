@@ -2,6 +2,8 @@
 	include '../components/navigation.php';
 	include '../styles.php';
 	include '../requests/session.php';
+	$time = explode('-', $_POST['time']);
+	$year = explode('-', $_POST['year']);
 	?>
 <html>
 	<head>
@@ -19,9 +21,14 @@
 							<label for="exampleInputEmail1">Subject Code</label>
 							<input type="text" name="subject" class="form-control" value="<?php echo $_POST['subject'] ?>" required>
 						</div>
-						<div class="form-group">
-							<label for="exampleInputPassword1">Time</label>
-							<input type="text" name="time" class="form-control" id="exampleInputPassword1" value="<?php echo $_POST['time'] ?>" required>
+						<label for="exampleInputPassword1">Time</label>
+						<div class="form-row">
+							<div class="col">
+								<input type="time" name="timeFrom" class="form-control" value="<?php echo $time[0] ?>" required>
+							</div>
+							<div class="col">
+								<input type="time" name="timeTo" class="form-control" value="<?php echo $time[1] ?>" required>
+							</div>
 						</div>
 						<div class="form-group">
 							<label for="exampleInputPassword1">Room</label>
@@ -52,12 +59,13 @@
 							<label for="exampleInputPassword1">Term</label>
 							<input type="number" name="term" class="form-control" id="exampleInputPassword1" value="<?php echo $_POST['term'] ?>" required>
 						</div>
-						<div class="form-group">
-							<label for="exampleInputPassword1">Year</label>
-							<input type="text" name="year" class="form-control" id="exampleInputPassword1" value="<?php echo $_POST['year'] ?>" required>
+						<label for="exampleInputPassword1">Year</label>
+						<div class="form-row">
+							<div class="col"><input type="number" name="yearFrom" class="form-control" value="<?php echo $year[0] ?>" required></div>
+							<div class="col"><input type="number" name="yearTo" class="form-control" value="<?php echo $year[1] ?>" required></div>
 						</div>
 						<input type="text" name="id" value="<?php echo $_POST['id'] ?>" hidden>
-						<button type="submit" class="btn btn-dark">Edit Department</button>
+						<button type="submit" class="btn btn-dark mt-3">Edit Schedule</button>
 					</form>
 					<hr>
 				</div>

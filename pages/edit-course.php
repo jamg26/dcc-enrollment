@@ -42,6 +42,7 @@
 								<?php }} ?>
 							</select>
 						</div>
+						<input type="text" name="id" value="<?php echo $_POST['id']?>" hidden>
 						<button type="submit" class="btn btn-dark">Edit Course</button>
 					</form>
 					<hr>

@@ -42,7 +42,7 @@
 						</div>
 						<div class="form-group">
 							<label for="exampleInputPassword1">Gender</label>
-							<select class="form-control" name="gender" value="<?php echo $_POST['gender']?>">
+							<select class="form-control" name="gender">
 								<option <?php if ($_POST['gender'] == 'Male') echo 'selected'; ?>>
 									Male
 								</option>

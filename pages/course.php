@@ -53,13 +53,14 @@
 								<td><?php echo $row['description'] ?></td>
 								<td><?php echo $row['department'] ?></td>
 								<form action="./edit-course.php" method="post">
+									<input type="text" name="id" value="<?php echo $row['id'] ?>" hidden/>
 									<input type="text" name="code" value="<?php echo $row['code'] ?>" hidden/>
 									<input type="text" name="description" value="<?php echo $row['description'] ?>" hidden/>
 									<input type="text" name="department" value="<?php echo $row['department'] ?>" hidden/>
 									<td><button type="submit" class="btn btn-success"><i class="fas fa-edit"></i></button></td>
 								</form>
 								<form action="../requests/delete-course.php" method="post">
-									<input type="text" name="course" value="<?php echo $row['code'] ?>" hidden/>
+									<input type="text" name="id" value="<?php echo $row['id'] ?>" hidden/>
 									<td><button type="submit" class="btn btn-danger"><i class="fas fa-trash-alt"></i></button></td>
 								</form>
 								<?php }
