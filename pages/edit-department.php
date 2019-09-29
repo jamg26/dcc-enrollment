@@ -25,7 +25,20 @@
 						</div>
 						<div class="form-group">
 							<label for="exampleInputPassword1">Program Head</label>
-							<input type="text" name="head" value="<?php echo $_POST['head']?>" class="form-control" placeholder="" required>
+							<select class="form-control" name="head" id="exampleFormControlSelect1">
+								<?php
+									include_once '../db.php';
+									$sql = "select * from instructor";
+									$result = $conn->query($sql);
+									if ($result->num_rows > 0) {
+									    while ($row = $result->fetch_assoc()) {
+									        $instructor = $row['name'];
+									        ?>
+								<option <?php if($_POST['head'] == $instructor) echo 'selected'?>>
+									<?php echo $instructor; ?>
+								</option>
+								<?php }} ?>
+							</select>
 						</div>
 						<input type="text" name="id" value="<?php echo $_POST['id']?>" hidden>
 						<button type="submit" class="btn btn-dark">Update Department</button>

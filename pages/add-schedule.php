@@ -47,7 +47,20 @@
 						</div>
 						<div class="form-group">
 							<label for="exampleInputPassword1">Instructor</label>
-							<input type="text" name="instructor" class="form-control" id="exampleInputPassword1" placeholder="" required>
+							<select class="form-control" name="instructor" id="exampleFormControlSelect1">
+								<?php
+									include_once '../db.php';
+									$sql = "select * from instructor";
+									$result = $conn->query($sql);
+									if ($result->num_rows > 0) {
+									    while ($row = $result->fetch_assoc()) {
+									        $instructor = $row['name'];
+									        ?>
+								<option>
+									<?php echo $instructor; ?>
+								</option>
+								<?php }} ?>
+							</select>
 						</div>
 						<div class="form-group">
 							<label for="exampleInputPassword1">Semester</label>
@@ -62,7 +75,7 @@
 							<div class="col"><input type="number" name="yearFrom" class="form-control" required></div>
 							<div class="col"><input type="number" name="yearTo" class="form-control" required></div>
 						</div>
-						<button type="submit" class="btn btn-dark mt-3">Add Department</button>
+						<button type="submit" class="btn btn-dark mt-3">Add Schedule</button>
 					</form>
 					<hr>
 				</div>

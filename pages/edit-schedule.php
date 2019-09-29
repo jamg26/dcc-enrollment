@@ -49,7 +49,20 @@
 						</div>
 						<div class="form-group">
 							<label for="exampleInputPassword1">Instructor</label>
-							<input type="text" name="instructor" class="form-control" id="exampleInputPassword1" value="<?php echo $_POST['instructor'] ?>" required>
+							<select class="form-control" name="instructor" id="exampleFormControlSelect1">
+								<?php
+									include_once '../db.php';
+									$sql = "select * from instructor";
+									$result = $conn->query($sql);
+									if ($result->num_rows > 0) {
+									    while ($row = $result->fetch_assoc()) {
+									        $instructor = $row['name'];
+									        ?>
+								<option <?php if($_POST['instructor'] == $instructor) echo 'selected'?>>
+									<?php echo $instructor; ?>
+								</option>
+								<?php }} ?>
+							</select>
 						</div>
 						<div class="form-group">
 							<label for="exampleInputPassword1">Semester</label>
