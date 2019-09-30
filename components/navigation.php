@@ -22,7 +22,8 @@
 						    <a id="students" class="nav-item nav-link" href="../pages/students.php">Students</a>
 						    <a id="schedule" class="nav-item nav-link" href="../pages/schedule.php">Schedule</a>
 						    <a id="room" class="nav-item nav-link" href="../pages/room.php">Room</a>
-						    <a id="room" class="nav-item nav-link" href="../pages/instructor.php">Instructor</a>
+							<a id="instructor" class="nav-item nav-link" href="../pages/instructor.php">Instructor</a>
+							<a id="subject" class="nav-item nav-link" href="../pages/subject.php">Subject</a>
 						    ';
 						}
 						echo '

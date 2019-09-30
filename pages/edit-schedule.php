@@ -19,7 +19,20 @@
 					<form action="../requests/update-schedule.php" method="post">
 						<div class="form-group">
 							<label for="exampleInputEmail1">Subject Code</label>
-							<input type="text" name="subject" class="form-control" value="<?php echo $_POST['subject'] ?>" required>
+							<select class="form-control" name="subject" id="exampleFormControlSelect1">
+								<?php
+									include_once '../db.php';
+									$sql = "select * from subject";
+									$result = $conn->query($sql);
+									if ($result->num_rows > 0) {
+									    while ($row = $result->fetch_assoc()) {
+									        $code = $row['code'];
+									        ?>
+								<option <?php if($code == $_POST['subject']) echo "selected"?>>
+									<?php echo $code; ?>
+								</option>
+								<?php }} ?>
+							</select>
 						</div>
 						<label for="exampleInputPassword1">Time</label>
 						<div class="form-row">

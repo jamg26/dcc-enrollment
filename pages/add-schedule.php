@@ -17,7 +17,20 @@
 					<form action="../requests/add-schedule.php" method="post">
 						<div class="form-group">
 							<label for="exampleInputEmail1">Subject Code</label>
-							<input type="text" name="code" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="" required>
+							<select class="form-control" name="code" id="exampleFormControlSelect1">
+								<?php
+									include_once '../db.php';
+									$sql = "select * from subject";
+									$result = $conn->query($sql);
+									if ($result->num_rows > 0) {
+									    while ($row = $result->fetch_assoc()) {
+									        $code = $row['code'];
+									        ?>
+								<option>
+									<?php echo $code; ?>
+								</option>
+								<?php }} ?>
+							</select>
 						</div>
 						<label for="exampleInputPassword1">Time</label>
 						<div class="form-row">
