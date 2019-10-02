@@ -77,11 +77,17 @@
 						</div>
 						<div class="form-group">
 							<label for="exampleInputPassword1">Semester</label>
-							<input type="number" name="semester" class="form-control" id="exampleInputPassword1" placeholder="" required>
+							<select class="form-control" name="semester" id="exampleFormControlSelect1">
+								<option>1</option>
+								<option>2</option>
+							</select>
 						</div>
 						<div class="form-group">
 							<label for="exampleInputPassword1">Term</label>
-							<input type="number" name="term" class="form-control" id="exampleInputPassword1" placeholder="" required>
+							<select class="form-control" name="term" id="exampleFormControlSelect1">
+								<option>1</option>
+								<option>2</option>
+							</select>
 						</div>
 						<label for="exampleInputPassword1">Year</label>
 						<div class="form-row">

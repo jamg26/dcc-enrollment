@@ -35,7 +35,6 @@
 					<table class="table">
 						<thead>
 							<tr>
-								<th scope="col">ID</th>
 								<th scope="col">Subject</th>
 								<th scope="col">Time</th>
 								<th scope="col">Room</th>
@@ -54,8 +53,7 @@
 								    while ($row = $result->fetch_assoc()) {
 								        ?>
 							<tr>
-								<th scope="row"><?php echo $row['id'] ?></th>
-								<td><?php echo $row['subject'] ?></td>
+								<th scope="row"><?php echo $row['subject'] ?></th>
 								<td><?php echo $row['time'] ?></td>
 								<td><?php echo $row['room'] ?></td>
 								<td><?php echo $row['instructor'] ?></td>

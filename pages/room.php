@@ -35,7 +35,6 @@
 					<table class="table">
 						<thead>
 							<tr>
-								<th scope="col">ID</th>
 								<th scope="col">Name</th>
 								<th scope="col">Location</th>
 								<th scope="col">Capacity</th>
@@ -50,8 +49,7 @@
 								    while ($row = $result->fetch_assoc()) {
 								        ?>
 							<tr>
-								<th scope="row"><?php echo $row['id'] ?></th>
-								<td><?php echo $row['name'] ?></td>
+								<th scope="row"><?php echo $row['name'] ?></th>
 								<td><?php echo $row['location'] ?></td>
 								<td><?php echo $row['capacity'] ?></td>
 								<form action="./edit-room.php" method="post">

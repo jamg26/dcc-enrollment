@@ -35,9 +35,12 @@
 					<table class="table">
 						<thead>
 							<tr>
-								<th scope="col">ID</th>
 								<th scope="col">Code</th>
 								<th scope="col">Name</th>
+								<th scope="col">Lecture</th>
+								<th scope="col">Laboratory</th>
+								<th scope="col">Units</th>
+								<th scope="col">Prerequisite</th>
 								<th scope="col"><button type="button" onclick="window.location.href='./add-subject.php'" class="btn btn-info"><i class="fas fa-plus"></i></button></th>
 							</tr>
 						</thead>
@@ -49,13 +52,19 @@
 								    while ($row = $result->fetch_assoc()) {
 								        ?>
 							<tr>
-								<th scope="row"><?php echo $row['id'] ?></th>
-								<td><?php echo $row['code'] ?></td>
+								<th scope="row"><?php echo $row['code'] ?></th>
 								<td><?php echo $row['name'] ?></td>
+								<td><?php echo $row['lec'] ?></td>
+								<td><?php echo $row['lab'] ?></td>
+								<td><?php echo $row['total'] ?></td>
+								<td><?php echo $row['prereq'] ?></td>
 								<form action="./edit-subject.php" method="post">
 									<input type="text" name="id" value="<?php echo $row['id'] ?>" hidden/>
 									<input type="text" name="code" value="<?php echo $row['code'] ?>" hidden/>
 									<input type="text" name="name" value="<?php echo $row['name'] ?>" hidden/>
+									<input type="text" name="lec" value="<?php echo $row['lec'] ?>" hidden/>
+									<input type="text" name="lab" value="<?php echo $row['lab'] ?>" hidden/>
+									<input type="text" name="prereq" value="<?php echo $row['prereq'] ?>" hidden/>
 									<td><button type="submit" class="btn btn-success"><i class="fas fa-edit"></i></button></td>
 								</form>
 								<form action="../requests/delete-subject.php" method="post">
