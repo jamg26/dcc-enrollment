@@ -5,7 +5,7 @@
 	?>
 <html>
 	<head>
-		<title>DCC | Enroll</title>
+		<title>DCC | Subjectload</title>
 	</head>
 	<body>
 		<div class="container">
@@ -13,24 +13,24 @@
 				<div class="col-sm">
 				<?php
 					if(@$_GET['deleted'] == 'true') {
-						echo '<div class="text-success">Subject deleted!</div>';
+						echo '<div class="text-success">Load deleted!</div>';
 					} else if(@$_GET['deleted'] == 'false') {
 						echo '<div class="text-danger">Failed!</div>';
 					}
 					if(@$_GET['updated'] == 'true') {
-						echo '<div class="text-success">Subject updated!</div>';
+						echo '<div class="text-success">Load updated!</div>';
 					} else if(@$_GET['updated'] == 'false') {
 						echo '<div class="text-danger">Failed!</div>';
 					}
-					if(@$_GET['enrolled'] == 'true') {
-						echo '<div class="text-success">Subject added!</div>';
+					if(@$_GET['added'] == 'true') {
+						echo '<div class="text-success">Load added!</div>';
 					} else if(@$_GET['added'] == 'false') {
 						echo '<div class="text-danger">Failed!</div>';
 					}
 					
 					?>
-				<h1>Enroll</h1>
-					<form action="./enroll.php" method="get">
+				<h1>Search load</h1>
+					<form action="./searchload.php" method="get">
 						<div class="form-group">
 							<input type="text" name="search" class="form-control" value="<?php echo @$_GET['search'] ?>" placeholder="Search Student">
 						</div>
@@ -65,12 +65,12 @@
 								<th scope="row"><?php echo $row['id'] ?></th>
 								<td><?php echo $row['firstname'] ?></td>
 								<td><?php echo $row['lastname'] ?></td>
-								<form action="./studentload.php" method="get">
+								<form action="./studentloadhandler.php" method="post">
 									<input type="text" name="id" value="<?php echo $row['id'] ?>" hidden/>
 									<input type="text" name="firstname" value="<?php echo $row['firstname'] ?>" hidden/>
 									<input type="text" name="lastname" value="<?php echo $row['lastname'] ?>" hidden/>
 									<input type="text" name="loadrow" value="1" hidden>
-									<td><button type="submit" class="btn btn-success"><i class="fas fa-edit"></i></button></td>
+									<td><button type="submit" class="btn btn-success"><i class="fas fa-eye"></i></button></td>
 								</form>
 								</tr>
 								<?php

@@ -25,6 +25,7 @@
 							<a id="instructor" class="nav-item nav-link" href="../pages/instructor.php">Instructor</a>
 							<a id="subject" class="nav-item nav-link" href="../pages/subject.php">Subject</a>
 							<a id="enroll" class="nav-item nav-link" href="../pages/enroll.php">Enroll</a>
+							<a id="searchload" class="nav-item nav-link" href="../pages/searchload.php">Searchload</a>
 						    ';
 						}
 						echo '
