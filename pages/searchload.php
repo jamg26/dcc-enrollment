@@ -5,7 +5,7 @@
 	?>
 <html>
 	<head>
-		<title>DCC | Subjectload</title>
+		<title>DCC | Searchload</title>
 	</head>
 	<body>
 		<div class="container">
