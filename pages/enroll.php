@@ -9,83 +9,72 @@
 	</head>
 	<body>
 		<div class="container">
-			<form action="../requests/enroll.php">
-				<div class="row">
-					<div class="col-sm">
-						<?php if (isset($_GET['success'])) {echo '<div class="text-success"><small>Success! Please wait while we verify your form. We will send you an email after.</small></div>';}?>
+			<div class="row">
+				<div class="col-sm">
+				<h1>Studentload</h1>
+					<form action="./enroll.php" method="get">
 						<div class="form-group">
-							<label for="exampleInputPassword1">First Name</label>
-							<input type="text" name="" class="form-control" id="exampleInputPassword1" placeholder="" value="<?php echo $_SESSION['user']['1'] ?>" disabled>
+							<input type="text" name="search" class="form-control" value="<?php echo @$_GET['search'] ?>" placeholder="Search Student">
 						</div>
-						<div class="form-group">
-							<label for="exampleInputPassword1">Middle Name</label>
-							<input type="text" name="" class="form-control" id="exampleInputPassword1" placeholder="" value="<?php echo $_SESSION['user']['2'] ?>" disabled>
-						</div>
-						<div class="form-group">
-							<label for="exampleInputPassword1">Last Name</label>
-							<input type="text" name="" class="form-control" id="exampleInputPassword1" placeholder="" value="<?php echo $_SESSION['user']['3'] ?>" disabled>
-						</div>
-						<div class="form-group">
-							<label for="exampleInputPassword1">Address</label>
-							<input type="text" name="" class="form-control" id="exampleInputPassword1" placeholder="" value="<?php echo $_SESSION['user']['4'] ?>" disabled>
-						</div>
-						<div class="form-group">
-							<label for="exampleInputPassword1">Status</label>
-							<input type="text" name="" class="form-control" id="exampleInputPassword1" placeholder="">
-						</div>
-						<div class="form-group">
-							<label for="exampleInputPassword1">Nationality</label>
-							<input type="text" name="" class="form-control" id="exampleInputPassword1" placeholder="">
-						</div>
-					</div>
-					<div class="col-sm">
-						<div class="form-group">
-							<label for="exampleFormControlSelect1">Gender</label>
-							<select class="form-control" id="exampleFormControlSelect1">
-								<option>Male</option>
-								<option>Female</option>
-								<option>Prefer not to say</option>
-							</select>
-						</div>
-						<div class="form-group">
-							<label for="exampleInputPassword1">Birthday</label>
-							<input type="text" class="form-control" id="exampleInputPassword1" placeholder="">
-						</div>
-						<div class="form-group">
-							<label for="exampleInputPassword1">Contact Number</label>
-							<input type="text" class="form-control" id="exampleInputPassword1" placeholder="">
-						</div>
-						<div class="form-group">
-							<label for="exampleInputPassword1">Course</label>
-							<select class="form-control" id="exampleFormControlSelect1">
+						<button type="submit" class="btn btn-primary">Search</button>
+					</form>
+					<?php 
+					if(isset($_GET['search'])) {
+						?>
+					<table class="table">
+						<thead>
+							<tr>
+								<th scope="col">ID</th>
+								<th scope="col">Firstname</th>
+								<th scope="col">Lastname</th>
+							</tr>
+						</thead>
+						<tbody>
+					<?php
+						}
+					?>
+					<?php
+					if(isset($_GET['search'])) {
+						include_once "../db.php";
+						$student = $_GET['search'];
+						$sql = "select * from student where firstname like '%$student%' or lastname like '%$student%'";
+						$result = $conn->query($sql);
+						$res = array();
+						if ($result->num_rows > 0) {
+							while ($row = $result->fetch_assoc()) {
+								?>
+								<tr>
+								<th scope="row"><?php echo $row['id'] ?></th>
+								<td><?php echo $row['firstname'] ?></td>
+								<td><?php echo $row['lastname'] ?></td>
+								<form action="./studentload.php" method="post">
+									<input type="text" name="id" value="<?php echo $row['id'] ?>" hidden/>
+									<input type="email" name="email" value="<?php echo $row['email'] ?>" hidden/>
+									<input type="password" name="password" value="<?php echo $row['password'] ?>" hidden/>
+									<input type="text" name="firstname" value="<?php echo $row['firstname'] ?>" hidden/>
+									<input type="text" name="middlename" value="<?php echo $row['middlename'] ?>" hidden/>
+									<input type="text" name="lastname" value="<?php echo $row['lastname'] ?>" hidden/>
+									<input type="text" name="address" value="<?php echo $row['address'] ?>" hidden/>
+									<input type="text" name="gender" value="<?php echo $row['gender'] ?>" hidden/>
+									<input type="text" name="birthdate" value="<?php echo $row['birthdate'] ?>" hidden/>
+									<input type="text" name="birthplace" value="<?php echo $row['birthplace'] ?>" hidden/>
+									<input type="text" name="nationality" value="<?php echo $row['nationality'] ?>" hidden/>
+									<input type="text" name="status" value="<?php echo $row['status'] ?>" hidden/>
+									<input type="text" name="contact" value="<?php echo $row['contact'] ?>" hidden/>
+									<input type="text" name="course" value="<?php echo $row['course'] ?>" hidden/>
+									<input type="text" name="loadrow" value="1" hidden>
+									<td><button type="submit" class="btn btn-success"><i class="fas fa-edit"></i></button></td>
+								</form>
+								</tr>
 								<?php
-									include '../db.php';
-									$sql = "select * from course";
-									$result = $conn->query($sql);
-									echo $result->num_rows;
-									if ($result->num_rows > 0) {
-									    while ($row = $result->fetch_assoc()) {
-									        $course = $row['description'];
-									        ?>
-								<option>
-									<?php echo $course; ?>
-								</option>
-								<?php }} ?>
-							</select>
-						</div>
-						<div class="form-group">
-							<label for="exampleInputPassword1">Year</label>
-							<select class="form-control" id="exampleFormControlSelect1">
-								<option>1</option>
-								<option>2</option>
-								<option>3</option>
-								<option>4</option>
-							</select>
-						</div>
-						<button type="submit" class="btn btn-primary">Submit</button>
-					</div>
+							}
+						}
+					}
+					?>
+						</tbody>
+					</table>
 				</div>
-			</form>
+			</div>
 		</div>
 	</body>
 </html>
