@@ -65,11 +65,11 @@
 								<th scope="row"><?php echo $row['id'] ?></th>
 								<td><?php echo $row['firstname'] ?></td>
 								<td><?php echo $row['lastname'] ?></td>
-								<form action="./studentloadhandler.php" method="post">
+								<form action="./studentloadhandler.php" method="get">
 									<input type="text" name="id" value="<?php echo $row['id'] ?>" hidden/>
 									<input type="text" name="firstname" value="<?php echo $row['firstname'] ?>" hidden/>
 									<input type="text" name="lastname" value="<?php echo $row['lastname'] ?>" hidden/>
-									<input type="text" name="loadrow" value="1" hidden>
+									<!-- <input type="text" name="loadrow" value="1" hidden> -->
 									<td><button type="submit" class="btn btn-success"><i class="fas fa-eye"></i></button></td>
 								</form>
 								</tr>

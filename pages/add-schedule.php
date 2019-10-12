@@ -16,6 +16,10 @@
 					<hr>
 					<form action="../requests/add-schedule.php" method="post">
 						<div class="form-group">
+							<label for="exampleInputEmail1">Schedule Code</label>
+							<input type="text" name="schedCode" class="form-control">
+						</div>
+						<div class="form-group">
 							<label for="exampleInputEmail1">Subject Code</label>
 							<select class="form-control" name="code" id="exampleFormControlSelect1">
 								<?php
