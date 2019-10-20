@@ -4,6 +4,7 @@ if(isset($_POST['schedCode'])) {
     $schedId = $_POST['schedId'];
     $schedCode = $_POST['schedCode'];
     $subCode = $_POST['subCode'];
+    $time = $_POST['time'];
     $semester = $_POST['semester'];
     $term = $_POST['term'];
     $studId = $_POST['studId'];
@@ -15,8 +16,8 @@ if(isset($_POST['schedCode'])) {
     while($row=$res->fetch_assoc()){
         $sem = $row['semester'];
         $term = $row['term'];
-        $sql = "insert into studentload (student, sched_code, subj_code, semester, term) 
-        values($studId, '$schedCode', '$subCode', '$sem', '$term')";
+        $sql = "insert into studentload (student, sched_code, subj_code, time, semester, term) 
+        values($studId, '$schedCode', '$subCode', '$time', '$sem', '$term')";
         if ($conn->query($sql) === TRUE) {
             // header('location: ../pages/studentloadhandler.php?added=true&id='.$studId.'&firstname='.$firstname.'&lastname='.$lastname);
         } else {

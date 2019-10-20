@@ -28,7 +28,7 @@
 					}
 					
 					?>
-			<div class="row">
+			<div class="row" id="studentInfo">
 				<div class="col-sm">
                     <div class="form-group">
                         <label for="exampleInputEmail1">ID</label>
@@ -69,7 +69,9 @@
 							<tr>
 								<th scope="col">Schedule Code</th>
 								<th scope="col">Subject</th>
+								<th scope="col">Time</th>
 								<th scope="col">Semester</th>
+								<th scope="col">Term</th>
 							</tr>
 						</thead>
 						<tbody>
@@ -89,11 +91,16 @@
 								<tr>
 								<th scope="row"><?php echo $row['code'] ?></th>
 								<td><?php echo $row['subject'] ?></td>
+								<td><?php echo $row['time'] ?></td>
 								<td><?php echo $row['semester'] ?></td>
+								<td><?php echo $row['term'] ?></td>
 								<form action="../requests/add-load.php" method="post">
 									<input type="text" name="schedId" value="<?php echo $row['id'] ?>" hidden/>
 									<input type="text" name="schedCode" value="<?php echo $row['code'] ?>" hidden/>
 									<input type="text" name="subCode" value="<?php echo $row['subject'] ?>" hidden/>
+									<input type="text" name="time" value="<?php echo $row['time'] ?>" hidden/>
+									<input type="text" name="semester" value="<?php echo $row['semester'] ?>" hidden/>
+									<input type="text" name="term" value="<?php echo $row['term'] ?>" hidden/>
 									<input type="text" name="studId" value="<?php echo $_GET['id'] ?>" hidden/>
 									<input type="text" name="firstname" value="<?php echo $_GET['firstname'] ?>" hidden/>
 									<input type="text" name="lastname" value="<?php echo $_GET['lastname'] ?>" hidden/>
@@ -111,13 +118,14 @@
 
 
 
-            <table class="table">
+            <table class="table" id="studentLoad">
                 <thead>
                     <tr>
                         <th scope="col">Load ID</th>
                         <th scope="col">Student ID</th>
                         <th scope="col">Schedule Code</th>
                         <th scope="col">Subject Code</th>
+                        <th scope="col">Time</th>
                         <th scope="col">Semester</th>
                         <th scope="col">term</th>
                 </thead>
@@ -137,6 +145,7 @@
 								<td><?php echo $row['student'] ?></td>
 								<td><?php echo $row['sched_code'] ?></td>
 								<td><?php echo $row['subj_code'] ?></td>
+								<td><?php echo $row['time'] ?></td>
 								<td><?php echo $row['semester'] ?></td>
 								<td><?php echo $row['term'] ?></td>
 								<form action="../requests/delete-studentload.php" method="post">
@@ -154,6 +163,18 @@
 					?>
                 </tbody>
             </table>
+			<button type="button" onclick="printData()" class="btn btn-primary btn-lg btn-block">Print</button>
 		</div>
 	</body>
+	<script>
+		function printData() {
+				var divToPrint=document.getElementById("studentLoad");
+				var divToPrint2=document.getElementById("studentInfo");
+				newWin= window.open("");
+				newWin.document.write(divToPrint2.outerHTML);
+				newWin.document.write(divToPrint.outerHTML);
+				newWin.print();
+				newWin.close();
+			}
+	</script>
 </html>
